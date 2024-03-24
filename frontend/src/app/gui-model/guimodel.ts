@@ -3,7 +3,7 @@ export class GuiModel {
 
     private _guiModel = {
         "application": {
-            "title": "DevOpsDemo FS2024",
+            "title": "Übersicht Doings Team MDM",
             "formList": [
                 {
                     "id": "OwnUserForm",
@@ -54,7 +54,7 @@ export class GuiModel {
                 },
                 {
                     "id": "ToDoForm",
-                    "title": { default: "ToDo" },
+                    "title": { default: "To Do" },
                     "url": "/todo",
                     "formFieldList": [
                         {
@@ -63,14 +63,14 @@ export class GuiModel {
                             "name": { default: "Titel" },
                             "required": true,
                             "width": 2
-                        },
+                        },                   
                         {
                             "id": "description",
                             "type": "text",
-                            "name": { default: "Text" },
+                            "name": { default: "Verantwortung" },
                             "newRow": true,
-                            "maxLength": 4000,
-                            "height": 4,
+                            "maxLength": 20,
+                            //"height": 4,
                             "width": 2
                         },
                         {
@@ -95,17 +95,53 @@ export class GuiModel {
                     "elementList": [
                         {
                             "type": "pageLabel",
-                            "value": "<h4>Willkommen bei DevOps</h4>",
+                            "value": "<h4>Eingabe to do pro Mitarbeiter</h4>",
                             "newRow": true
                         },
                         {
                             "type": "button",
-                            "name": { default: "ToDo-List" },
-                            "icon": "fa-file-alt",
-                            "color": "wet-asphalt",
+                            "name": { default: "Annina" },
+                            "icon": "fa-rocket",
+                            "color": "orange",
                             "page": "toDoPage",
                             "width": 2,
                             "newRow": true,
+                        },
+                        {
+                            "type": "button",
+                            "name": { default: "Kevin" },
+                            "icon": "fa-rocket",
+                            "color": "alizarin",
+                            "page": "toDoPage",
+                            "width": 2,
+                            "newRow": false,
+                        },
+                        {
+                            "type": "button",
+                            "name": { default: "Meli" },
+                            "icon": "fa-rocket",
+                            "color": "wisteria",
+                            "page": "toDoPage",
+                            "width": 2,
+                            "newRow": false,
+                        },
+                        {
+                            "type": "button",
+                            "name": { default: "Levin" },
+                            "icon": "fa-rocket",
+                            "color": "belize hole",
+                            "page": "toDoPage",
+                            "width": 2,
+                            "newRow": false,
+                        },
+                        {
+                            "type": "button",
+                            "name": { default: "Paul" },
+                            "icon": "fa-rocket",
+                            "color": "lime",
+                            "page": "toDoPage",
+                            "width": 2,
+                            "newRow": false,
                         },
                     ]
                 },
@@ -117,9 +153,9 @@ export class GuiModel {
                         },
                         {
                             "type": "newButton",
-                            "name": { default: "Neues ToDo"},
+                            "name": { default: "Neues To Do"},
                             "icon": "fa-user",
-                            "color": "green",
+                            "color": "orange",
                             "width": 2,
                             "form" : {
                                 "form" : "ToDoForm"
@@ -128,8 +164,8 @@ export class GuiModel {
                         {
                             "type": "list",
                             "name": "ToDo",
-                            "icon": "fa-user",
-                            "color": "wet-asphalt",
+                            "icon": "fa-check",
+                            "color": "clouds",
                             "search": true,
                             "url": "/todo",
                             "form": {
@@ -138,6 +174,36 @@ export class GuiModel {
                         }
                     ]
                 },
+                {
+                    "id": "migration",
+                    "elementList": [
+                        {
+                            "type": "backbutton",
+                        },
+                        {
+                            "type": "newButton",
+                            "name": { default: "Neues ToDo"},
+                            "icon": "fa-user",
+                            "color": "orange",
+                            "width": 2,
+                            "form" : {
+                                "form" : "ToDoForm"
+                            }
+                        },
+                        {
+                            "type": "list",
+                            "name": "ToDo",
+                            "icon": "fa-check",
+                            "color": "clouds",
+                            "search": true,
+                            "url": "/migration",
+                            "form": {
+                                "form": "ToDoForm"
+                            }
+                        }
+                    ]
+                },
+                
             ]
         }
     };
