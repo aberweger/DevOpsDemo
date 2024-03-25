@@ -162,6 +162,18 @@ export class GuiModel {
                             }
                         },
                         {
+                            "type": "linkButton",
+                            "name": {default: "JIRA Board"},
+                            "icon": "fa-list",
+                            "color": "blue",
+                            "width": 2,
+                            "text": "Open Jira",
+                            //"action": {
+                            //    "type": "openUrl",
+                            "url": "https://advellence.atlassian.net/jira/software/c/projects/DEN/boards/32"
+                            //}
+                        },
+                        {
                             "type": "list",
                             "name": "ToDo",
                             "icon": "fa-check",
