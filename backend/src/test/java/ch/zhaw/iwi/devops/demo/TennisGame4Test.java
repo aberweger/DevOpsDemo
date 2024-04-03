@@ -16,8 +16,13 @@ public class TennisGame4Test {
 
     @Test
     void testGetScore() {
-        //Test case for Love-All
+        //Test case for 0-0 Love-All
         assertEquals("Love-All",game.getScore()); 
+
+        //Test case for 15-15 Fifteen-All
+        game.wonPoint("Player 1");
+        game.wonPoint("Player 2");
+        assertEquals("Fifteen-All",game.getScore());
     }
 
     @Test
