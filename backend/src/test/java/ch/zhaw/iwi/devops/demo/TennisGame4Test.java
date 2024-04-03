@@ -46,6 +46,17 @@ public class TennisGame4Test {
         }
         assertEquals("Forty-Thirty", game.getScore());
         
+        // Spielstand zurücksetzen
+        setUp();
+        // Test case for "Win for Player 1"
+        for (int i = 0; i < 4; i++) {
+            game.wonPoint("Player 1");
+        }
+        for (int i = 0; i < 2; i++) {
+            game.wonPoint("Player 2");
+        }
+        assertEquals("Win for Player 1", game.getScore());
+
 
     }
 
