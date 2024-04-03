@@ -25,7 +25,7 @@ public class TennisGame4Test {
         game.wonPoint("Player 2");
         assertEquals("Fifteen-All",game.getScore());
 
-        //Spielstand zurücksetzen
+        //Spielstand zurücksetzen 
         setUp();
         // Test case for "Thirty-All"
         for (int i = 0; i < 2; i++) {
