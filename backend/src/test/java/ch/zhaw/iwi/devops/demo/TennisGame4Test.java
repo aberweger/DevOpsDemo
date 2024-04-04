@@ -66,12 +66,17 @@ public class TennisGame4Test {
             game.wonPoint("Player 2");
         }
         assertEquals("Win for Player 2", game.getScore());
-
-
     }
 
     @Test
     void testIsDeuce() {
+        setUp();
+        for (int i = 0; i < 3; i++) {
+            game.wonPoint("Player 1");
+            game.wonPoint("Player 2");
+        }
+        assertEquals(true, game.isDeuce());
+
 
     }
 
