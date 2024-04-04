@@ -57,6 +57,16 @@ public class TennisGame4Test {
         }
         assertEquals("Win for Player 1", game.getScore());
 
+        setUp();
+        // Test case for "Win for Player 2"
+        for (int i = 0; i < 2; i++) {
+            game.wonPoint("Player 1");
+        }
+        for (int i = 0; i < 4; i++) {
+            game.wonPoint("Player 2");
+        }
+        assertEquals("Win for Player 2", game.getScore());
+
 
     }
 
