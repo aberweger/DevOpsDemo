@@ -28,8 +28,8 @@ public class TennisGame4Test {
        // Spielstand zurücksetzen 
         setUp();
         // Test case for 30-30 "Thirty-All"
-        for (int i = 0; i < 2; i++) {
-
+        for (int i = 0; i < 2; i++) 
+        {
         game.wonPoint("Player 1");
         game.wonPoint("Player 2");
         }
@@ -38,10 +38,12 @@ public class TennisGame4Test {
         // Spielstand zurücksetzen   
         setUp();
         // Test case for 40-30 "Forty-Thirty"
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) 
+        {
             game.wonPoint("Player 1");
         }
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) 
+        {
             game.wonPoint("Player 2");
         }
         assertEquals("Forty-Thirty", game.getScore());
@@ -49,20 +51,24 @@ public class TennisGame4Test {
         // Spielstand zurücksetzen
         setUp();
         // Test case for "Win for Player 1"
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
+        {
             game.wonPoint("Player 1");
         }
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) 
+        {
             game.wonPoint("Player 2");
         }
         assertEquals("Win for Player 1", game.getScore());
 
         setUp();
         // Test case for "Win for Player 2"
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) 
+        {
             game.wonPoint("Player 1");
         }
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
+        {
             game.wonPoint("Player 2");
         }
         assertEquals("Win for Player 2", game.getScore());
@@ -71,7 +77,8 @@ public class TennisGame4Test {
     @Test
     void testIsDeuce() {
         setUp();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) 
+        {
             game.wonPoint("Player 1");
             game.wonPoint("Player 2");
         }
@@ -86,7 +93,8 @@ public class TennisGame4Test {
     @Test
     void testReceiverHasAdvantage() 
     {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) 
+        {
             game.wonPoint("Player 1");
             game.wonPoint("Player 2");
         }
@@ -97,7 +105,8 @@ public class TennisGame4Test {
     @Test
     void testServerHasAdvantage() 
     {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) 
+        {
             game.wonPoint("Player 1");
             game.wonPoint("Player 2");
         }
@@ -108,7 +117,8 @@ public class TennisGame4Test {
     @Test
     void testServerHasWon() 
     {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
+        {
             game.wonPoint("Player 1");
         }
         assertEquals("Win for Player 1", game.getScore());
@@ -117,14 +127,20 @@ public class TennisGame4Test {
     @Test
     void testReceiverHasWon() 
     {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
+        {
             game.wonPoint("Player 2");
         }
         assertEquals("Win for Player 2", game.getScore());
     }
 
     @Test
-    void testWonPoint() {
-
+    void testWonPoint() 
+    {
+        //check that it's Love-All
+        assertEquals("Love-All", game.getScore(), "Initial score should be Love-All");
+        //Server wins a point
+        game.wonPoint("Player 1");
+        assertEquals("Fifteen-Love", game.getScore());
     }
 }
