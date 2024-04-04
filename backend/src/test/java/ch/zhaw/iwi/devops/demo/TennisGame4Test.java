@@ -77,6 +77,11 @@ public class TennisGame4Test {
         }
         assertEquals(true, game.isDeuce());
 
+        // Testing Deuce after both players score more points
+        game.wonPoint("Player 1");
+        game.wonPoint("Player 2");
+        assertEquals(true, game.isDeuce());
+
 
     }
 
