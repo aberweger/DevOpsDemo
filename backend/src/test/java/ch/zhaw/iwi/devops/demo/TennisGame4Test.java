@@ -94,19 +94,24 @@ public class TennisGame4Test {
         assertEquals(true, game.receiverHasAdvantage());        
     }
 
-
     @Test
-    void testReceiverHasWon() {
-
-    }
-
-    @Test
-    void testServerHasAdvantage() {
-
+    void testServerHasAdvantage() 
+    {
+        for (int i = 0; i < 3; i++) {
+            game.wonPoint("Player 1");
+            game.wonPoint("Player 2");
+        }
+        game.wonPoint("Player 1");
+        assertEquals(true, game.serverHasAdvantage());
     }
 
     @Test
     void testServerHasWon() {
+
+    }
+
+    @Test
+    void testReceiverHasWon() {
 
     }
 
