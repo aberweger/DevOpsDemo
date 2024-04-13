@@ -25,6 +25,17 @@ class TennisGame4Test {
         game.wonPoint("Player 2");
         assertEquals("Fifteen-All",game.getScore());
 
+        @Test
+        void testDuplicateCodeSmell() 
+        {
+            //Test case for 0-0 Love-All
+            assertEquals("Love-All",game.getScore()); 
+    
+            //Test case for 15-15 Fifteen-All
+            game.wonPoint("Player 1");
+            game.wonPoint("Player 2");
+            assertEquals("Fifteen-All",game.getScore());    
+
        // Spielstand zurücksetzen 
         setUp();
         // Test case for 30-30 "Thirty-All"
