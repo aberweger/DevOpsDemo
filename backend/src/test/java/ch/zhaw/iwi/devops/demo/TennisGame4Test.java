@@ -143,25 +143,4 @@ class TennisGame4Test {
         game.wonPoint("Player 1");
         assertEquals("Fifteen-Love", game.getScore());
     }
-
-    @Test
-    void testWonPointtest() 
-    {
-        //check that it's Love-All
-        assertEquals("Love-All", game.getScore(), "Initial score should be Love-All");
-        //Server wins a point
-        game.wonPoint("Player 1");
-        assertEquals("Fifteen-Love", game.getScore());
-    }
-
-    @Test
-    void testWonPointtestest() 
-    {
-        //check that it's Love-All
-        assertEquals("Love-All", game.getScore(), "Initial score should be Love-All");
-        //Server wins a point
-        game.wonPoint("Player 1");
-        assertEquals("Fifteen-Love", game.getScore());
-    }
-    
 }
