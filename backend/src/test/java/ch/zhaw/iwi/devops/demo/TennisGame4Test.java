@@ -25,18 +25,7 @@ class TennisGame4Test {
         game.wonPoint("Player 2");
         assertEquals("Fifteen-All",game.getScore());
 
-        @Test
-        void testDuplicateCodeSmell() 
-        {
-            //Test case for 0-0 Love-All
-            assertEquals("Love-All",game.getScore()); 
-    
-            //Test case for 15-15 Fifteen-All
-            game.wonPoint("Player 1");
-            game.wonPoint("Player 2");
-            assertEquals("Fifteen-All",game.getScore());    
-
-       // Spielstand zurücksetzen 
+        // Spielstand zurücksetzen 
         setUp();
         // Test case for 30-30 "Thirty-All"
         for (int i = 0; i < 2; i++) 
@@ -154,4 +143,25 @@ class TennisGame4Test {
         game.wonPoint("Player 1");
         assertEquals("Fifteen-Love", game.getScore());
     }
+
+    @Test
+    void testWonPointtest() 
+    {
+        //check that it's Love-All
+        assertEquals("Love-All", game.getScore(), "Initial score should be Love-All");
+        //Server wins a point
+        game.wonPoint("Player 1");
+        assertEquals("Fifteen-Love", game.getScore());
+    }
+
+    @Test
+    void testWonPointtestest() 
+    {
+        //check that it's Love-All
+        assertEquals("Love-All", game.getScore(), "Initial score should be Love-All");
+        //Server wins a point
+        game.wonPoint("Player 1");
+        assertEquals("Fifteen-Love", game.getScore());
+    }
+    
 }
