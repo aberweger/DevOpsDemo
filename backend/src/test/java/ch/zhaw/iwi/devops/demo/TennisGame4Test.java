@@ -1,6 +1,7 @@
 package ch.zhaw.iwi.devops.demo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,20 @@ class TennisGame4Test {
     @BeforeEach
     void setUp() {
         game = new TennisGame4("Player 1", "Player 2");
+    }
+
+     @Test
+    void testInvalidPlayerName() {
+        assertThrows(IllegalArgumentException.class, () -> game.wonPoint("Player 3"), "Exception should be thrown for invalid player names");
+    }
+
+    private void scorePoints(int player1Points, int player2Points) {
+        for (int i = 0; i < player1Points; i++) {
+            game.wonPoint("Player 1");
+        }
+        for (int i = 0; i < player2Points; i++) {
+            game.wonPoint("Player 2");
+        }
     }
 
     @Test
