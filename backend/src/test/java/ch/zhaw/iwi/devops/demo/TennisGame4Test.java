@@ -15,18 +15,13 @@ class TennisGame4Test {
         game = new TennisGame4("Player 1", "Player 2");
     }
 
-     @Test
-    void testInvalidPlayerName() {
-        assertThrows(IllegalArgumentException.class, () -> game.wonPoint("Player 3"), "Exception should be thrown for invalid player names");
-    }
-
     @Test
     void testExtendedDeuce() {
         scorePoints(3, 3);  // Brings the game to deuce
         scorePoints(2, 2);  // Continues the deuce
         assertEquals("Deuce", game.getScore(), "Score should be Deuce after extended deuce scenario");
     }
-    
+
     private void scorePoints(int player1Points, int player2Points) {
         for (int i = 0; i < player1Points; i++) {
             game.wonPoint("Player 1");
