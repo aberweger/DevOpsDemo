@@ -118,7 +118,7 @@ export class GuiModel {
                         },
                         {
                             "type": "button",
-                            "name": { default: "Meli" },
+                            "name": { default: "Melanie" },
                             "icon": "fa-rocket",
                             "color": "wisteria",
                             "page": "toDoPage",
