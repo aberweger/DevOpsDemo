@@ -7,10 +7,8 @@ RUN apt-get update && apt-get install -y curl \
   && npm install -g npm@10.2.3 \
   && apt-get install -y python3.10
 
-# Set the working directory for the app
 WORKDIR /usr/src/app
 
-# Copy the entire project
 COPY . .
 
 # Change directory to 'frontend' and install dependencies
@@ -29,8 +27,6 @@ WORKDIR /usr/src/app/backend
 RUN chmod +x gradlew
 RUN ./gradlew build
 
-# Expose the application port
 EXPOSE 8080
 
-# Define the command to run the application
 CMD ["java", "-jar", "/usr/src/app/backend/build/libs/demo-0.0.1-SNAPSHOT.jar"]
