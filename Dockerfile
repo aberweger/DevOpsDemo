@@ -1,26 +1,36 @@
 FROM openjdk:21-jdk-slim
+
+# Install curl and other dependencies
 RUN apt-get update && apt-get install -y curl \
   && curl -sL https://deb.nodesource.com/setup_20.x | bash - \
   && apt-get install -y nodejs \
-  && curl -L https://www.npmjs.com/install.sh | npm_install="10.2.3" | sh
-RUN apt-get update && apt-get install -y python3.10
+  && npm install -g npm@10.2.3 \
+  && apt-get install -y python3.10
 
+# Set the working directory for the app
 WORKDIR /usr/src/app
 
+# Copy the entire project
 COPY . .
 
-WORKDIR /usr/scr/app/frontend
+# Change directory to 'frontend' and install dependencies
+WORKDIR /usr/src/app/frontend
 RUN npm install
+
+# Run the build command
 RUN npm run build
 
-# Move built frontend files to backend resources
-RUN mv dist ../backend/src/main/resources/static
+# Move the built files to the backend resources
+WORKDIR /usr/src/app
+RUN mv frontend/dist backend/src/main/resources/static
 
 # Prepare backend for build
 WORKDIR /usr/src/app/backend
 RUN chmod +x gradlew
 RUN ./gradlew build
 
-# Expose port and set the startup command
+# Expose the application port
 EXPOSE 8080
+
+# Define the command to run the application
 CMD ["java", "-jar", "/usr/src/app/backend/build/libs/demo-0.0.1-SNAPSHOT.jar"]
