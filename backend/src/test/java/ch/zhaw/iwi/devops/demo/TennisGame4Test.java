@@ -131,5 +131,14 @@ class TennisGame4Test {
         assertEquals(true, game.serverHasAdvantage());
     }
 
+    @Test
+    void testServerHasWon() 
+    {
+        for (int i = 0; i < 4; i++) 
+        {
+            game.wonPoint("Player 1");
+        }
+        assertEquals("Win for Player 1", game.getScore());
+    }
    
 }
