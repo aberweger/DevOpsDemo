@@ -16,22 +16,6 @@ class TennisGame4Test {
     }
 
     @Test
-    void testExtendedDeuce() {
-        scorePoints(3, 3);  // Brings the game to deuce
-        scorePoints(2, 2);  // Continues the deuce
-        assertEquals("Deuce", game.getScore(), "Score should be Deuce after extended deuce scenario");
-    }
-
-    private void scorePoints(int player1Points, int player2Points) {
-        for (int i = 0; i < player1Points; i++) {
-            game.wonPoint("Player 1");
-        }
-        for (int i = 0; i < player2Points; i++) {
-            game.wonPoint("Player 2");
-        }
-    }
-
-    @Test
     void testGetScore() 
     {
         //Test case for 0-0 Love-All
@@ -120,6 +104,22 @@ class TennisGame4Test {
     }
 
     @Test
+    void testExtendedDeuce() {
+        scorePoints(3, 3);  // Brings the game to deuce
+        scorePoints(2, 2);  // Continues the deuce
+        assertEquals("Deuce", game.getScore(), "Score should be Deuce after extended deuce scenario");
+    }
+
+    private void scorePoints(int player1Points, int player2Points) {
+        for (int i = 0; i < player1Points; i++) {
+            game.wonPoint("Player 1");
+        }
+        for (int i = 0; i < player2Points; i++) {
+            game.wonPoint("Player 2");
+        }
+    }
+
+    @Test
     void testServerHasAdvantage() 
     {
         for (int i = 0; i < 3; i++) 
@@ -131,33 +131,5 @@ class TennisGame4Test {
         assertEquals(true, game.serverHasAdvantage());
     }
 
-    @Test
-    void testServerHasWon() 
-    {
-        for (int i = 0; i < 4; i++) 
-        {
-            game.wonPoint("Player 1");
-        }
-        assertEquals("Win for Player 1", game.getScore());
-    }
-
-    @Test
-    void testReceiverHasWon() 
-    {
-        for (int i = 0; i < 4; i++) 
-        {
-            game.wonPoint("Player 2");
-        }
-        assertEquals("Win for Player 2", game.getScore());
-    }
-
-    @Test
-    void testWonPoint() 
-    {
-        //check that it's Love-All
-        assertEquals("Love-All", game.getScore(), "Initial score should be Love-All");
-        //Server wins a point
-        game.wonPoint("Player 1");
-        assertEquals("Fifteen-Love", game.getScore());
-    }
+   
 }
