@@ -140,5 +140,15 @@ class TennisGame4Test {
         }
         assertEquals("Win for Player 1", game.getScore());
     }
+
+    @Test
+    void testReceiverHasWon() 
+    {
+        for (int i = 0; i < 4; i++) 
+        {
+            game.wonPoint("Player 2");
+        }
+        assertEquals("Win for Player 2", game.getScore());
+    }
    
 }
